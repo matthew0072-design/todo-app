@@ -1,0 +1,28 @@
+.Signup {
+  box-sizing: border-box;
+  position: relative;
+  margin: 50px auto;
+  width: 40%;
+  height: 80%;
+  padding: 20px;
+  background-color: cornsilk;
+  opacity: 0.85;
+  border-radius: 50px;
+  box-shadow: 5px 10px 5px grey;
+}
+p {
+  text-align: center;
+  color: blue;
+  font-weight: bold;
+}
+
+p:not(:last-child) {
+  font-size: 2rem;
+  font-style: italics;
+  font-weight: bolder;
+}
+
+form {
+  margin: auto;
+  opacity: 1;
+}

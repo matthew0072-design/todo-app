@@ -1,0 +1,9 @@
+.Addtask {
+  position: relative;
+  margin: 100px auto;
+  padding: 20px;
+  border: 1px solid grey;
+  box-shadow: 2px 3px 2px 3px blue;
+  width: 40%;
+  height: 100px;
+}

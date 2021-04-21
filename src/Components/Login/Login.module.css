@@ -1,0 +1,21 @@
+.Login {
+  box-sizing: border-box;
+  position: relative;
+  margin: 100px auto;
+  width: 40%;
+  height: 50%;
+  padding: 20px;
+  background-color: cornsilk;
+  opacity: 0.85;
+  border-radius: 50px;
+  box-shadow: 5px 10px 5px grey;
+}
+.Para {
+  margin-top: 0;
+  text-align: center;
+  color: blue;
+  font-weight: bold;
+  font-style: italics;
+  font-size: 2rem;
+  text-shadow: 2px 3px 2px tomato;
+}

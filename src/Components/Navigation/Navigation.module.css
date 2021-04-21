@@ -1,0 +1,36 @@
+.Navigation {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: blue;
+  font-weight: bold;
+}
+
+.Navigation ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+}
+.Navigation ul li {
+  cursor: pointer;
+  padding: 0.7rem;
+  text-align: center;
+}
+.Navigation ul li a {
+  margin: 5px;
+  text-decoration: none;
+  color: white;
+}
+
+.Navigation li:hover,
+.Navigation a:hover {
+  background-color: tomato;
+}
+
+.Signup {
+  background-color: red;
+  border-radius: 1px;
+  color: white;
+}

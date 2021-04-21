@@ -1,0 +1,16 @@
+Input {
+  box-sizing: border-box;
+  width: 60%;
+  padding: 20px;
+  height: 5px;
+  border-radius: 2px 5px;
+  outline: none;
+  margin-bottom: 10px;
+  margin-left: 80px;
+  border: 1px solid blue;
+}
+
+input:active,
+input:focus {
+  border-bottom: 4px solid lime;
+}
