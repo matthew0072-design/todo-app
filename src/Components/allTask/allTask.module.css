@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.AllTask {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Task {
+  color: blue;
+  font-weight: bold;
+  width: 40%;
+  height: 15rem;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid blue;
+  box-shadow: 2px 3px 4px grey;
+}
+.button {
+  display: flex;
+}
+
+button {
+  padding: 10px;
+  border-radius: 0;
+  margin: 40px 5px 0px 10px;
+}
+
+.Edit {
+  background-color: limegreen;
+  color: white;
+}
+
+.Delete {
+  background-color: red;
+  color: white;
+}

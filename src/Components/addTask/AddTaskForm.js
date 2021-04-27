@@ -4,7 +4,7 @@ import Input from "../UI/Input/Input";
 import Button from "../UI/Button/Button";
 import classes from "./AddTask.module.css";
 
-const AddTask = ({ addTask }) => {
+const AddTask = ({ addTask, history }) => {
   const [task, setTask] = useState("");
 
   const [success, setSuccess] = useState(false);
@@ -15,18 +15,20 @@ const AddTask = ({ addTask }) => {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
     const newTask = {
       id: uuidv4(),
       text: task,
+      date: day + ":" + month + ":" + year,
+      completed: "false",
     };
-
-    addTask(newTask);
     setSuccess(true);
     setTask("");
+    addTask(newTask);
   };
-
-  console.log(addTask);
 
   return (
     <div className={classes.Addtask}>

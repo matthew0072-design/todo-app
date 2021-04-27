@@ -7,8 +7,7 @@ const AddTask = ({ history }) => {
   const { tasks, setTasks } = useContext(MyContext);
 
   const addTask = (newTask) => {
-    setTasks([...tasks, newTask]);
-    console.log(...tasks);
+    setTasks([newTask, ...tasks]);
     history.push("/");
   };
   return (

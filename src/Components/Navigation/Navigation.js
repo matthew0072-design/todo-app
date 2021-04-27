@@ -3,8 +3,8 @@ import classes from "./Navigation.module.css";
 import { Link, Switch, Route } from "react-router-dom";
 import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
-import AddTask from "../addTask/AddTaskForm";
-import AllTask from "../allTask/allTask";
+import AddTask from "../addTask/AddTask";
+import AllTasks from "../AllTasks/Alltasks";
 
 const Navigation = (props) => {
   return (
@@ -29,7 +29,7 @@ const Navigation = (props) => {
         </ul>
       </div>
       <Switch>
-        <Route path="/" exact component={AllTask} />
+        <Route path="/" exact component={AllTasks} />
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
         <Route path="/add-task" component={AddTask} />
