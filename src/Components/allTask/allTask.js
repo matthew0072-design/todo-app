@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import classes from "./allTask.module.css";
-import { Link } from "react-router-dom";
-import MyContext from "../../context";
+import { useHistory } from "react-router-dom";
 
-const AllTask = ({ handleDelete, id, text, date, completed, handleEdit }) => {
-  const { tasks } = useContext(MyContext);
+const AllTask = ({ handleDelete, id, text, date, completed }) => {
+  const history = useHistory();
+
   return (
     <div className={classes.AllTask}>
       <div className={classes.Task}>
@@ -12,9 +12,8 @@ const AllTask = ({ handleDelete, id, text, date, completed, handleEdit }) => {
         <p>Completed: {completed} </p>
         <p>Date: {date}</p>
         <div className={classes.button}>
-          <Link to={`/edit/${id}`} onClick={() => handleEdit(tasks.id, text)}>
-            EDIT
-          </Link>
+          <button onClick={() => history.push(`/edit/${id}`)}>EDIT</button>
+
           <button className={classes.Delete} onClick={() => handleDelete(id)}>
             DELETE{" "}
           </button>

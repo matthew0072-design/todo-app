@@ -4,8 +4,11 @@ import Input from "../UI/Input/Input";
 import Button from "../UI/Button/Button";
 import classes from "./AddTask.module.css";
 
-const AddTask = ({ addTask }) => {
-  const [task, setTask] = useState("");
+const AddTask = (props) => {
+  const [task, setTask] = useState({
+    text: props.task ? props.task.text : " ",
+    date: props.task ? props.task.date : " ",
+  });
 
   const [success, setSuccess] = useState(false);
 
@@ -19,15 +22,16 @@ const AddTask = ({ addTask }) => {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();
+    const { text } = task;
     const newTask = {
       id: uuidv4(),
-      text: task,
-      date: day + ":" + month + ":" + year,
+      text,
+      date: `${day} : ${month} : ${year}`,
       completed: "false",
     };
     setSuccess(true);
     setTask("");
-    addTask(newTask);
+    props.addTask(newTask);
   };
 
   return (

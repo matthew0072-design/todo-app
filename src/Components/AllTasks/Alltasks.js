@@ -8,13 +8,7 @@ const AllTasks = (props) => {
   const handleDelete = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
-
-  const handleEdit = (id, newValue) => {
-    setTasks((prev) =>
-      prev.map((item) => (item.id === id ? { ...item, text: newValue } : item))
-    );
-  };
-
+  console.log(tasks.id);
   return (
     <div>
       {tasks.map((task) => {
@@ -26,7 +20,6 @@ const AllTasks = (props) => {
             text={task.text}
             completed={task.completed}
             date={task.date}
-            handleEdit={handleEdit}
           />
         );
       })}

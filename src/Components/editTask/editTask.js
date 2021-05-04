@@ -1,55 +1,24 @@
-import { useContext, useState } from "react";
-import Input from "../UI/Input/Input";
-import Button from "../UI/Button/Button";
+import { useContext } from "react";
 import MyContext from "../../context";
-import { v4 as uuidv4 } from "uuid";
-import { useHistory } from "react-router-dom";
+import AddTaskForm from "../addTask/AddTaskForm";
+import { useHistory, useParams } from "react-router-dom";
 
 const EditTask = () => {
   const history = useHistory();
+  const { id } = useParams();
   const { tasks, setTasks } = useContext(MyContext);
 
-  const [task, setTask] = useState("");
+  const editedTask = tasks.find((task) => task.id === id);
 
-  const onChangeHandler = (event) => {
-    setTask(event.target.value);
-  };
-
-  const addTask = (newTask) => {
-    setTasks([newTask, ...tasks]);
+  const onSubmitHandler = (task) => {
+    const filtered = tasks.filter((task) => task.id !== id);
+    setTasks([task, ...filtered]);
     history.push("/");
-  };
-
-  const onSubmitHandler = (event) => {
-    event.preventDefault();
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-
-    const newTask = {
-      id: uuidv4(),
-      text: task,
-      date: `${day}:${month}:${year}`,
-      completed: "false",
-    };
-    addTask(newTask);
-    setTask("");
   };
 
   return (
     <div>
-      <form onSubmit={onSubmitHandler}>
-        <Input
-          type="text"
-          name="tasks"
-          placeholder="Edit Task"
-          change={onChangeHandler}
-          value={task.text}
-        />
-
-        <Button name="Edit" />
-      </form>
+      <AddTaskForm editedTask={editedTask} onSubmitHandler={onSubmitHandler} />
     </div>
   );
 };
