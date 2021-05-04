@@ -1,16 +1,23 @@
-import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+import { useContext, useState } from "react";
 import Input from "../UI/Input/Input";
 import Button from "../UI/Button/Button";
-import classes from "./AddTask.module.css";
+import MyContext from "../../context";
+import { v4 as uuidv4 } from "uuid";
+import { useHistory } from "react-router-dom";
 
-const AddTask = ({ addTask }) => {
+const EditTask = () => {
+  const history = useHistory();
+  const { tasks, setTasks } = useContext(MyContext);
+
   const [task, setTask] = useState("");
-
-  const [success, setSuccess] = useState(false);
 
   const onChangeHandler = (event) => {
     setTask(event.target.value);
+  };
+
+  const addTask = (newTask) => {
+    setTasks([newTask, ...tasks]);
+    history.push("/");
   };
 
   const onSubmitHandler = (event) => {
@@ -19,37 +26,32 @@ const AddTask = ({ addTask }) => {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();
+
     const newTask = {
       id: uuidv4(),
       text: task,
-      date: day + ":" + month + ":" + year,
+      date: `${day}:${month}:${year}`,
       completed: "false",
     };
-    setSuccess(true);
-    setTask("");
     addTask(newTask);
+    setTask("");
   };
 
   return (
-    <div className={classes.Addtask}>
-      {success && (
-        <div style={{ textAlign: "center", color: "lime" }}>
-          <h3>Successful</h3>
-        </div>
-      )}
+    <div>
       <form onSubmit={onSubmitHandler}>
         <Input
           type="text"
           name="tasks"
-          placeholder="Add Task"
+          placeholder="Edit Task"
           change={onChangeHandler}
           value={task.text}
         />
 
-        <Button name="Add Task" />
+        <Button name="Edit" />
       </form>
     </div>
   );
 };
 
-export default AddTask;
+export default EditTask;

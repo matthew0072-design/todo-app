@@ -5,6 +5,7 @@ import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
 import AddTask from "../addTask/AddTask";
 import AllTasks from "../AllTasks/Alltasks";
+import EditTask from "../editTask/editTask";
 
 const Navigation = (props) => {
   return (
@@ -33,6 +34,7 @@ const Navigation = (props) => {
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
         <Route path="/add-task" component={AddTask} />
+        <Route path="/edit/:id" component={EditTask} />
       </Switch>
     </React.Fragment>
   );

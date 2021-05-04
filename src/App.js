@@ -7,6 +7,7 @@ import MyContext from "./context";
 import useLocalStorage from "./custom/useLocalStorage";
 function App() {
   const [tasks, setTasks] = useLocalStorage("tasks", []);
+
   return (
     <BrowserRouter>
       <MyContext.Provider value={{ tasks, setTasks }}>

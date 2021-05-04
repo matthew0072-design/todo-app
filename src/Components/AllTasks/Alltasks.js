@@ -6,13 +6,13 @@ const AllTasks = (props) => {
   const { tasks, setTasks } = useContext(MyContext);
 
   const handleDelete = (id) => {
-    // const remainingTasks = [...tasks];
-    // remainingTasks.splice(id, 1);
-    // setTasks(remainingTasks);
-    const remainingTasks = tasks.filter((task) => task.id !== id);
-    setTasks(remainingTasks);
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
 
-    console.log("Delete key was clicked");
+  const handleEdit = (id, newValue) => {
+    setTasks((prev) =>
+      prev.map((item) => (item.id === id ? { ...item, text: newValue } : item))
+    );
   };
 
   return (
@@ -20,11 +20,13 @@ const AllTasks = (props) => {
       {tasks.map((task) => {
         return (
           <AllTask
+            id={task.id}
             key={task.id}
             handleDelete={handleDelete}
             text={task.text}
             completed={task.completed}
             date={task.date}
+            handleEdit={handleEdit}
           />
         );
       })}
